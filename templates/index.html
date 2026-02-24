@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Speech Assistant</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 overflow-hidden">
+
+<!-- Animated Blobs Background -->
+<div class="absolute w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse top-10 left-10"></div>
+<div class="absolute w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse bottom-10 right-10"></div>
+<div class="absolute w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse top-40 right-40"></div>
+
+<!-- Glass Card -->
+<div class="relative backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl rounded-3xl p-10 w-[520px] text-white">
+
+<h1 class="text-3xl font-bold text-center mb-6 tracking-wide">
+🎙 AI Speech Assistant
+</h1>
+
+<input type="file" id="audio"
+class="w-full p-3 rounded-xl bg-white/20 border border-white/30 text-white mb-4">
+
+<button onclick="upload()"
+class="w-full bg-gradient-to-r from-blue-500 to-purple-500 py-3 rounded-xl font-semibold hover:scale-105 transition">
+Transcribe Audio
+</button>
+
+<div id="status" class="text-center mt-4 text-gray-200"></div>
+
+<textarea id="output"
+class="w-full mt-5 bg-white/20 border border-white/30 rounded-xl p-4 h-40 placeholder-gray-300"
+placeholder="Transcription will appear here..."></textarea>
+
+<button onclick="downloadText()"
+class="w-full mt-4 bg-gradient-to-r from-green-400 to-emerald-600 py-3 rounded-xl font-semibold hover:scale-105 transition">
+Download Transcript
+</button>
+
+</div>
+</body>
+</html>

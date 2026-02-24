@@ -1,0 +1,24 @@
+function upload(){
+    let fileInput = document.getElementById("audioFile")
+    let file = fileInput.files[0]
+
+    if(!file){
+        alert("Select audio file first")
+        return
+    }
+
+    let formData = new FormData()
+    formData.append("audio", file)
+
+    fetch("/transcribe", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.error)
+            alert(data.error)
+        else
+            document.getElementById("output").value = data.text
+    })
+}
