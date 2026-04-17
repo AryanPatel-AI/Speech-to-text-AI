@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: speech-to-text-web
+    runtime: python
+    buildCommand: pip install -r requirement.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+
+  - type: worker
+    name: speech-to-text-worker
+    runtime: python
+    buildCommand: pip install -r requirement.txt
+    startCommand: celery -A worker.celery worker --loglevel=info
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+
+  - type: redis
+    name: speech-to-text-redis
+    plan: free

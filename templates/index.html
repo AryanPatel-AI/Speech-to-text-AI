@@ -1,43 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>AI Speech Assistant</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scribe AI - Neural Transcription</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+<body>
+    <!-- Dynamic animated backgrounds -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
-<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 overflow-hidden">
+    <main class="glass-container">
+        <header>
+            <div class="logo">
+                <span class="icon">⚡</span>
+                <span class="brand">Scribe</span>
+            </div>
+            <h1>Neural Audio Transcription</h1>
+            <p>Powered by OpenAI Whisper technology</p>
+        </header>
 
-<!-- Animated Blobs Background -->
-<div class="absolute w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse top-10 left-10"></div>
-<div class="absolute w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse bottom-10 right-10"></div>
-<div class="absolute w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-40 animate-pulse top-40 right-40"></div>
+        <section id="drop-zone" class="drop-zone">
+            <input type="file" id="audio" accept="audio/*,video/*">
+            <div class="drop-content">
+                <div class="upload-icon">🎧</div>
+                <h3>Upload Media</h3>
+                <p>Drag and drop your audio or video file here, or click to browse.</p>
+                <span class="supported-formats">Supports MP3, WAV, M4A, MP4 & more</span>
+            </div>
+        </section>
 
-<!-- Glass Card -->
-<div class="relative backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl rounded-3xl p-10 w-[520px] text-white">
+        <!-- Status & Loading Animation Container -->
+        <section id="status-container" class="status-container" style="display: none;">
+            <div class="waves">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+            <p id="status-message" class="status-message">Initializing Neural Net...</p>
+        </section>
 
-<h1 class="text-3xl font-bold text-center mb-6 tracking-wide">
-🎙 AI Speech Assistant
-</h1>
+        <!-- Result Container -->
+        <section id="result-container" class="result-container" style="display: none;">
+            <div class="result-header">
+                <h3>Transcription Ready</h3>
+                <button id="copy-btn" class="icon-btn" title="Copy to clipboard">📋</button>
+            </div>
+            <textarea id="output" readonly></textarea>
+            <button id="download-btn" class="primary-btn glow-effect">
+                <span>Download Transcript</span>
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </button>
+        </section>
+    </main>
 
-<input type="file" id="audio"
-class="w-full p-3 rounded-xl bg-white/20 border border-white/30 text-white mb-4">
-
-<button onclick="upload()"
-class="w-full bg-gradient-to-r from-blue-500 to-purple-500 py-3 rounded-xl font-semibold hover:scale-105 transition">
-Transcribe Audio
-</button>
-
-<div id="status" class="text-center mt-4 text-gray-200"></div>
-
-<textarea id="output"
-class="w-full mt-5 bg-white/20 border border-white/30 rounded-xl p-4 h-40 placeholder-gray-300"
-placeholder="Transcription will appear here..."></textarea>
-
-<button onclick="downloadText()"
-class="w-full mt-4 bg-gradient-to-r from-green-400 to-emerald-600 py-3 rounded-xl font-semibold hover:scale-105 transition">
-Download Transcript
-</button>
-
-</div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
