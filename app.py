@@ -5,7 +5,9 @@ import threading
 import traceback
 import whisper
 
-os.environ["PATH"] += os.pathsep + "/opt/homebrew/bin"
+# Add homebrew to path if we're on a Mac local dev environment, gracefully fallback on Hugging Face Debian
+if os.path.exists("/opt/homebrew/bin"):
+    os.environ["PATH"] += os.pathsep + "/opt/homebrew/bin"
 
 app = Flask(__name__)
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -81,4 +83,5 @@ def status(job_id):
     return jsonify(jobs[job_id])
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    port = int(os.environ.get("PORT", 7860))
+    app.run(host="0.0.0.0", port=port, debug=False)
