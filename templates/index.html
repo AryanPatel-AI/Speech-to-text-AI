@@ -13,12 +13,30 @@
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
 
-    <main class="glass-container">
-        <header>
+    <nav class="navbar">
+        <div class="nav-container">
             <div class="logo">
                 <span class="icon">⚡</span>
                 <span class="brand">Scribe</span>
             </div>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#" class="nav-btn">New Session</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="glass-container">
+        <header>
             <h1>Neural Audio Transcription</h1>
             <p>Powered by OpenAI Whisper technology</p>
         </header>

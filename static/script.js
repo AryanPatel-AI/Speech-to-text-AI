@@ -5,6 +5,25 @@ const statusMessage = document.getElementById('status-message');
 const resultContainer = document.getElementById('result-container');
 const outputTextarea = document.getElementById('output');
 
+// Mobile Menu Logic
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('open');
+        navLinks.classList.toggle('active');
+    });
+}
+
+// Close menu when clicking links
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navToggle) navToggle.classList.remove('open');
+        if (navLinks) navLinks.classList.remove('active');
+    });
+});
+
 // Drag and drop mechanics
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
     dropZone.addEventListener(eventName, preventDefaults, false);
