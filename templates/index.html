@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <!-- Dynamic animated backgrounds -->
     <div class="blob blob-1"></div>
@@ -19,7 +21,7 @@
                 <span class="icon">⚡</span>
                 <span class="brand">Scribe</span>
             </div>
-            
+
             <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -27,10 +29,10 @@
             </button>
 
             <ul class="nav-links" id="nav-links">
-                <li><a href="#" class="active">Home</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="#" class="active">App</a></li>
                 <li><a href="#">History</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#" class="nav-btn">New Session</a></li>
+                <li><a href="/app" class="nav-btn">New Session</a></li>
             </ul>
         </div>
     </nav>
@@ -72,15 +74,21 @@
             <textarea id="output" readonly></textarea>
             <button id="download-btn" class="primary-btn glow-effect">
                 <span>Download Transcript</span>
-                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
             </button>
         </section>
     </main>
-    
+
     <footer>
         <p>Made with <span class="heart">❤️</span> by <span>Aryan Patel</span></p>
     </footer>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 </html>

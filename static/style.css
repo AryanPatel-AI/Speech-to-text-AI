@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Outfit:wght@300;400;600;800&display=swap');
+
 :root {
     --bg-base: #06060c;
     --glass-bg: rgba(25, 25, 35, 0.4);
@@ -9,6 +11,8 @@
     --brand-pink: #ec4899;
     --success: #10b981;
     --error: #ef4444;
+    --accent-purple: #a855f7;
+    --accent-blue: #3b82f6;
     --nav-height: 80px;
 }
 
@@ -142,6 +146,17 @@ header {
     background: linear-gradient(to right, #93c5fd, #c4b5fd);
     -webkit-background-clip: text;
     color: transparent;
+}
+
+/* Landing page logo override */
+.landing-body .logo .brand {
+    font-size: 1.6rem;
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(to right, #ffffff, var(--accent-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
 }
 
 .nav-links {
@@ -610,3 +625,316 @@ footer p span:last-child:hover {
     }
 }
 
+/* ========================================= */
+/* Animated Blob Background                  */
+/* ========================================= */
+
+.bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: #030308;
+}
+
+.landing-body {
+    background-color: #030308 !important;
+}
+
+.bg-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    z-index: -1;
+}
+
+
+.bg-container .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+}
+
+.bg-container .blob-1 {
+    width: 600px;
+    height: 600px;
+    background: var(--accent-purple);
+    top: -150px;
+    left: -150px;
+    animation: blob1-move 25s infinite alternate ease-in-out;
+}
+
+.bg-container .blob-2 {
+    width: 500px;
+    height: 500px;
+    background: var(--accent-blue);
+    bottom: -100px;
+    right: -100px;
+    animation: blob2-move 20s infinite alternate ease-in-out;
+}
+
+.bg-container .blob-3 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+    top: 40%;
+    left: 30%;
+    animation: blob3-move 30s infinite alternate ease-in-out;
+}
+
+@keyframes blob1-move {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(200px, 100px) scale(1.15); }
+    100% { transform: translate(100px, 200px) scale(1.05); }
+}
+
+@keyframes blob2-move {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-150px, -80px) scale(1.1); }
+    100% { transform: translate(-80px, -150px) scale(1.05); }
+}
+
+@keyframes blob3-move {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(80px, -60px) scale(1.2); }
+    100% { transform: translate(-60px, 80px) scale(0.95); }
+}
+
+.aurora-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.aurora {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 40%);
+    filter: blur(60px);
+    animation: aurora-pulse 15s infinite alternate ease-in-out;
+}
+
+@keyframes aurora-pulse {
+    0% { transform: rotate(0deg) scale(1); opacity: 0.3; }
+    100% { transform: rotate(10deg) scale(1.1); opacity: 0.6; }
+}
+
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================= */
+/* Landing Page Navbar Override              */
+/* ========================================= */
+
+.landing-body .navbar {
+    background: rgba(3, 3, 8, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 0;
+}
+
+.landing-body .new-session-btn {
+    background: var(--accent-blue);
+    color: white !important;
+    padding: 0.8rem 1.5rem !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease;
+}
+
+.landing-body .new-session-btn:hover {
+    transform: translateY(-2px);
+    background: #2563eb;
+}
+
+.badge {
+    background: rgba(168, 85, 247, 0.05);
+    border: 1px solid rgba(168, 85, 247, 0.1);
+    color: var(--accent-purple);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.brand-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
+}
+
+.main-hero-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 0;
+    letter-spacing: 0px;
+}
+
+.hero-description {
+    max-width: 600px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 2rem 0;
+}
+
+.cta-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.primary-btn-blue {
+    background: var(--accent-blue);
+    color: #ffffff;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+.primary-btn-blue:hover {
+    background: #2563eb;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+}
+
+.outline-btn-green {
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.outline-btn-green:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #ffffff;
+}
+
+#typing-text {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    font-weight: 800;
+}
+
+.main-hero-title {
+    min-height: 4rem;
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background-color: var(--accent-purple);
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Redesigned Sections */
+.section {
+    padding: 100px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.section-content {
+    max-width: 800px;
+    width: 90%;
+    background: rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    border-radius: 24px;
+    padding: 3rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-content:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 50px rgba(59, 130, 246, 0.1);
+}
+
+.about-text {
+    font-family: 'Outfit', sans-serif;
+}
+
+.landing-body .nav-btn {
+    border-color: var(--accent-purple) !important;
+    color: var(--accent-purple) !important;
+}
+
+.landing-body .nav-btn:hover {
+    background: var(--accent-purple) !important;
+    color: #ffffff !important;
+}

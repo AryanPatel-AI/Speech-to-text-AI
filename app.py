@@ -49,6 +49,10 @@ def process_audio(job_id, path):
             os.remove(path)
 
 @app.route("/")
+def landing():
+    return render_template("landing.html")
+
+@app.route("/app")
 def home():
     return render_template("index.html")
 
