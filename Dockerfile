@@ -14,6 +14,7 @@ WORKDIR /app
 COPY --chown=user . /app
 
 # Install python dependencies
+RUN pip install --no-cache-dir --upgrade pip setuptools
 RUN pip install --no-cache-dir -r requirement.txt
 
 # Create a directory for the database and uploads with correct permissions
