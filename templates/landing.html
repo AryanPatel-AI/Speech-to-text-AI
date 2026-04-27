@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scribe | Patel & Co.</title>
     <meta name="description" content="Scribe - Advanced speech-to-text assistant by Patel & Co.">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2">
 </head>
+
 <body class="landing-body">
     <!-- Animated Blob Background -->
     <div class="bg-container">
@@ -29,7 +31,7 @@
                 <span class="icon" style="color: var(--accent-purple)">⚡</span>
                 <span class="brand">Scribe</span>
             </a>
-            
+
             <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -54,22 +56,24 @@
                 <span id="typing-text"></span>
                 <span class="typing-cursor"></span>
             </div>
-            
+
             <p class="hero-description" style="color: var(--text-muted); opacity: 0.8; margin-top: 1rem;">
                 A clean, minimal, and futuristic transcription experience.
             </p>
 
             <div class="cta-group">
-                <a href="/app" class="nav-btn" style="padding: 1rem 3rem; border-radius: 50px; text-decoration: none;">Launch Scribe</a>
+                <a href="/app" class="hero-cta">Launch Scribe</a>
             </div>
         </section>
 
         <!-- About Section -->
         <section id="about" class="section">
             <div class="section-content fade-in">
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem; color: var(--accent-purple); text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);">About Scribe</h2>
+                <h2
+                    style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem; color: var(--accent-purple); text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);">
+                    About Scribe</h2>
                 <p class="about-text">
-                    Scribe is an advanced speech-to-text assistant designed for speed, accuracy, and simplicity. 
+                    Scribe is an advanced speech-to-text assistant designed for speed, accuracy, and simplicity.
                     Redefining the boundary between audio and text.
                 </p>
                 <p class="credit-line">Made by Aryan and IT Team</p>
@@ -79,23 +83,32 @@
         <!-- Contact Section -->
         <section id="contact" class="section">
             <div class="section-content fade-in">
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent-purple); text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);">Get In Touch</h2>
+                <h2
+                    style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem; color: var(--accent-purple); text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);">
+                    Get In Touch</h2>
                 <p style="color: var(--text-muted); margin-bottom: 2rem;">Minimal contact for a focused experience.</p>
-                
-                <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-                    <div class="form-group" style="width: 100%; max-width: 500px; text-align: left; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
+
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');"
+                    style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                    <div class="form-group"
+                        style="width: 100%; max-width: 500px; text-align: left; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
                         <label for="name" style="color: var(--text-muted); font-size: 0.8rem;">Name</label>
                         <input type="text" id="name" class="form-input" placeholder="Your Name" required>
                     </div>
-                    <div class="form-group" style="width: 100%; max-width: 500px; text-align: left; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    <div class="form-group"
+                        style="width: 100%; max-width: 500px; text-align: left; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
                         <label for="email" style="color: var(--text-muted); font-size: 0.8rem;">Email</label>
                         <input type="email" id="email" class="form-input" placeholder="Your Email" required>
                     </div>
-                    <div class="form-group" style="width: 100%; max-width: 500px; text-align: left; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    <div class="form-group"
+                        style="width: 100%; max-width: 500px; text-align: left; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
                         <label for="message" style="color: var(--text-muted); font-size: 0.8rem;">Message</label>
-                        <textarea id="message" class="form-input" style="height: 120px; resize: none;" placeholder="Your Message" required></textarea>
+                        <textarea id="message" class="form-input" style="height: 120px; resize: none;"
+                            placeholder="Your Message" required></textarea>
                     </div>
-                    <button type="submit" class="nav-btn" style="width: 100%; max-width: 500px; border-radius: 12px; cursor: pointer; padding: 1rem;">Send Message</button>
+                    <button type="submit" class="nav-btn"
+                        style="width: 100%; max-width: 500px; border-radius: 12px; cursor: pointer; padding: 1rem;">Send
+                        Message</button>
                 </form>
             </div>
         </section>
@@ -107,4 +120,5 @@
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
 </html>
