@@ -20,8 +20,11 @@ app = Flask(__name__)
 # --- Configuration ---
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///transcriptions.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['CELERY_BROKER_URL'] = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
-app.config['CELERY_RESULT_BACKEND'] = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
+app.config.update(
+    broker_url=os.environ.get("REDIS_URL", "redis://localhost:6379/0"),
+    result_backend=os.environ.get("REDIS_URL", "redis://localhost:6379/0"),
+    broker_connection_retry_on_startup=True
+)
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 UPLOAD = os.path.join(BASE_DIR, "uploads")
@@ -33,8 +36,8 @@ db = SQLAlchemy(app)
 def make_celery(app):
     celery = Celery(
         app.import_name,
-        backend=app.config['CELERY_RESULT_BACKEND'],
-        broker=app.config['CELERY_BROKER_URL']
+        backend=app.config['result_backend'],
+        broker=app.config['broker_url']
     )
     celery.conf.update(app.config)
 
