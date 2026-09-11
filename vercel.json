@@ -1,15 +1,9 @@
 {
-  "version": 2,
-  "builds": [
+  "name": "speech-to-text-ai",
+  "rewrites": [
     {
-      "src": "app.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app.py"
+      "source": "/(.*)",
+      "destination": "https://aryanpatel58-speech-to-text-ai.hf.space/$1"
     }
   ]
 }
